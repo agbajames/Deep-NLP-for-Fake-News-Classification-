@@ -107,7 +107,8 @@ Current layout:
 
 ```text
 .
-├── README.md                     # Project overview and documentation
-├── XLNET_Politifact.ipynb        # XLNet fine-tuning & evaluation on PolitiFact
-└── XLNET_GossipCop.ipynb         # XLNet fine-tuning & evaluation on GossipCop
+├── README.md
+└── notebooks/
+    ├── XLNET_Politifact.ipynb
+    └── XLNET_GossipCop.ipynb
 

@@ -44,7 +44,7 @@ The project uses the **FakeNewsNet** dataset, which provides labelled real and f
   - Articles are in English.
   - Data access and licensing are controlled by the original dataset maintainers – please request and download the data from the official source before running the notebooks.
 
-> This repository does **not** include the raw dataset files for licensing reasons.
+> This repository does **not** include the raw dataset.
 
 ---
 
@@ -111,4 +111,85 @@ Current layout:
 └── notebooks/
     ├── XLNET_Politifact.ipynb
     └── XLNET_GossipCop.ipynb
+```
 
+Each notebook is self-contained and walks through:
+
+1. Loading and cleaning the dataset.
+2. Tokenising text for XLNet.
+3. Fine-tuning the model.
+4. Evaluating performance and printing metrics.
+
+---
+
+## 7. Getting started
+
+### 7.1 Prerequisites
+
+- Python 3.x  
+- `pip` or `conda`  
+- Access to the FakeNewsNet dataset (PolitiFact and/or GossipCop)
+
+### 7.2 Suggested setup
+
+Create a virtual environment and install the required packages:
+
+```bash
+git clone https://github.com/agbajames/fake-news-detection-xlnet.git
+cd fake-news-detection-xlnet
+
+python -m venv .venv
+source .venv/bin/activate        # On Windows: .venv\Scriptsctivate
+
+# Install core dependencies (add or adjust based on your environment)
+pip install torch torchvision torchaudio
+pip install transformers
+pip install scikit-learn pandas numpy jupyter
+```
+
+Download the relevant FakeNewsNet subsets and update the dataset paths in the notebooks where indicated.
+
+Then launch Jupyter:
+
+```bash
+jupyter notebook
+```
+
+Open either `XLNET_Politifact.ipynb` or `XLNET_GossipCop.ipynb` and run the cells top to bottom.
+
+---
+
+## 8. Limitations and future directions
+
+This project represents an early academic exploration of transformer-based fake-news detection and has a few limitations:
+
+- Experiments are run in notebooks only – no production-ready scripts or API.
+- No formal experiment tracking (e.g. MLflow, Weights & Biases).
+- Evaluation is focused on standard metrics; no calibration analysis or robustness checks.
+- More recent models (e.g. RoBERTa, DeBERTa, modern LLMs) are not included.
+
+If I were to revisit this work today, likely next steps would include:
+
+- Re-implementing the pipeline as reusable Python modules with a CLI.
+- Adding MLflow/W&B tracking for experiments.
+- Comparing XLNet with more recent transformer architectures.
+- Exposing the best model behind a simple REST API or demo app.
+
+---
+
+## 9. What I learnt
+
+Even though this is an early project, it helped me build foundations that I now use on larger NLP and LLM systems:
+
+- Designing a full NLP pipeline for noisy, real-world news text.
+- Fine-tuning pre-trained transformer models for downstream tasks.
+- Comparing different model families on the same task using consistent metrics.
+- Understanding the impact of pre-processing decisions on downstream performance.
+
+---
+
+## 10. Project status
+
+> **Status – archived (original academic version)**  
+
+This repository is kept as a record of my Trimester 2 project on fake-news detection using XLNet. I now work with larger-scale NLP and LLM systems, but this project remains a useful snapshot of my early transformer-based work.
